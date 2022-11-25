@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private val precioUnitario = 3
-    private var cantidad = 0
+    private var cantidad = 1
     private lateinit var textViewPrecio: TextView
     private lateinit var textViewCantidad: TextView
 
@@ -28,14 +29,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun increase(Vista : View){
-        cantidad++
-        textViewCantidad.text = cantidad.toString()
+        if (cantidad < 10){
+            cantidad++
+            textViewCantidad.text = cantidad.toString()
+        }else
+            Toast.makeText(applicationContext, "Numero maximo de helados alcanzado", Toast.LENGTH_SHORT).show()
     }
 
     fun decrese(Vista : View){
-        if (cantidad>0){
+        if (cantidad > 1){
             cantidad--
             textViewCantidad.text = cantidad.toString()
+
         }
+        else
+            Toast.makeText(applicationContext, "Numero minimo de helados alcanzado", Toast.LENGTH_SHORT).show()
     }
 }

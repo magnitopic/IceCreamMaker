@@ -16,34 +16,44 @@
         android:layout_margin="5dp"
         android:text="CANTIDAD" />
 
-    <Button
-        android:id="@+id/plusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:backgroundTint="#D6D7D7"
-        android:textColor="@color/black"
-        android:layout_marginLeft="10dp"
-        android:onClick="increase"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="0"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        <Button
+            android:id="@+id/minusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="#D6D7D7"
+            android:onClick="decrese"
+            android:text="-"
+            android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/minusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:backgroundTint="#D6D7D7"
-        android:textColor="@color/black"
-        android:layout_marginLeft="10dp"
-        android:onClick="decrese"/>
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toEndOf="@+id/minusButton"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/plusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#D6D7D7"
+            android:onClick="increase"
+            android:layout_toEndOf="@+id/amount"
+            android:text="+"
+            android:textColor="@color/black" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tituloPrecio"
