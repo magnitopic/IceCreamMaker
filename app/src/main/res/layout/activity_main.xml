@@ -10,6 +10,19 @@
 
 
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="COBERTURAS" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crema batida"
+        android:checked="false" />
+
+    <TextView
         android:id="@+id/tituloCantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,14 +73,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="PRECIO" />
+        android:text="RESUMEN DEL PEDIDIO" />
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="€0"
+        android:text=""
         android:textColor="@color/black" />
 
     <Button
@@ -78,6 +91,6 @@
         android:backgroundTint="#D8D8D8"
         android:onClick="onClickButtonOrder"
         tools:ignore="onClick"
-        android:text="RESUMEN DEL PEDIDO"
+        android:text="MOSTAR EL RESUMEN DEL PEDIDO"
         android:textColor="#5e5e5e" />
 </LinearLayout>

@@ -9,6 +9,8 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private val precioUnitario = 3
     private var cantidad = 1
+    private var cream = false
+    private var name = ""
     private lateinit var textViewPrecio: TextView
     private lateinit var textViewCantidad: TextView
 
@@ -20,12 +22,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickButtonOrder(vista: View) {
-        displayAndCalculatePriceInformation()
+        displayPriceInformation()
     }
 
-    private fun displayAndCalculatePriceInformation() {
-        var precioFinal = cantidad * precioUnitario
-        textViewPrecio.text = "€ "+precioFinal
+    private fun displayPriceInformation() {
+        var info = ("Nombre: ${name}\n¿Incluir crema batida?: ${if (cream) "Sí" else "No"}\nCantidad: ${cantidad}\nTotal: ${calculatePrice()} €\n¡Gracias por su visita!")
+        textViewPrecio.text = info
+    }
+
+    private fun calculatePrice() : Int {
+        return (cantidad * precioUnitario)
     }
 
     fun increase(Vista : View){
@@ -40,9 +46,10 @@ class MainActivity : AppCompatActivity() {
         if (cantidad > 1){
             cantidad--
             textViewCantidad.text = cantidad.toString()
-
         }
         else
             Toast.makeText(applicationContext, "Numero minimo de helados alcanzado", Toast.LENGTH_SHORT).show()
     }
 }
+
+class Icecream(var quantity : Int, var cream : Boolean)
