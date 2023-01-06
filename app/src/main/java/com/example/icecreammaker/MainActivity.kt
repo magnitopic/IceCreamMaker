@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         displayPriceInformation()
     }
 
+    fun onCheckBoxChange(vista : View) {
+        cream = !cream
+    }
+
     private fun displayPriceInformation() {
         var info = ("Nombre: ${name}\n¿Incluir crema batida?: ${if (cream) "Sí" else "No"}\nCantidad: ${cantidad}\nTotal: ${calculatePrice()} €\n¡Gracias por su visita!")
         textViewPrecio.text = info
@@ -33,7 +37,6 @@ class MainActivity : AppCompatActivity() {
     private fun calculatePrice() : Int {
         return (cantidad * precioUnitario)
     }
-
     fun increase(Vista : View){
         if (cantidad < 10){
             cantidad++
