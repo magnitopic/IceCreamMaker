@@ -16,12 +16,19 @@
         android:text="COBERTURAS" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxCream"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Crema batida"
-        android:onClick="onCheckBoxChange"
         android:checked="false" />
+
+    <CheckBox
+        android:id="@+id/checkBoxChocolate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chololate"
+        android:checked="false" />
+
 
     <TextView
         android:id="@+id/tituloCantidad"
@@ -69,29 +76,42 @@
             android:textColor="@color/black" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tituloPrecio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="RESUMEN DEL PEDIDIO" />
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text=""
-        android:textColor="@color/black" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:backgroundTint="#D8D8D8"
-        android:onClick="onClickButtonOrder"
-        tools:ignore="onClick"
-        android:text="MOSTAR EL RESUMEN DEL PEDIDO"
-        android:textColor="#5e5e5e" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tituloPrecio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="RESUMEN DEL PEDIDIO" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text=""
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:backgroundTint="#D8D8D8"
+                android:onClick="onClickButtonOrder"
+                android:text="MOSTAR EL RESUMEN DEL PEDIDO"
+                android:textColor="#5e5e5e"
+                tools:ignore="onClick" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
