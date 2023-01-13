@@ -9,6 +9,15 @@
     tools:context=".MainActivity">
 
 
+    <EditText
+        android:id="@+id/nameImput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nombre del cliente"
+        android:maxLength="20"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
