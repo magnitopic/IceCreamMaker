@@ -21,6 +21,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"></action>
+                <data android:scheme="mailto"></data>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
         </activity>
     </application>
 

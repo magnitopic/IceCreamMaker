@@ -1,5 +1,7 @@
 package com.example.icecreammaker
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -7,6 +9,8 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 
 class MainActivity : AppCompatActivity() {
     private val precioUnitario = 3
@@ -60,6 +64,18 @@ class MainActivity : AppCompatActivity() {
         else
             Toast.makeText(applicationContext, "Numero minimo de helados alcanzado", Toast.LENGTH_SHORT).show()
     }
+
+    fun composeEmail(address: Array<String>, message: String, subject: String) {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, address)
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_TEXT, message)
+        }
+        if (intent.resolveActivity(packageManager) != null) {
+            ContextCompat.startActivity(intent)
+        }
+    }
 }
 
-class Icecream(var quantity : Int, var cream : Boolean)
+
