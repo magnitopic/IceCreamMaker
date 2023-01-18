@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             putExtra(Intent.EXTRA_TEXT, message)
         }
         if (intent.resolveActivity(packageManager) != null) {
-            ContextCompat.startActivity(intent)
+            startActivity(intent)
         }
     }
 }

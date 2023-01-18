@@ -14,6 +14,9 @@
         android:theme="@style/Theme.IceCreamMaker"
         tools:targetApi="31">
         <activity
+            android:name=".RealizarPedido"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,9 +25,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SENDTO"></action>
-                <data android:scheme="mailto"></data>
-                <category android:name="android.intent.category.DEFAULT"></category>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="mailto" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
