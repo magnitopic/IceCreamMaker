@@ -10,33 +10,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/black"
         android:orientation="vertical"
-        android:layout_weight=".7">
+        android:showDividers="end">
 
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ice_cream_image_small" />
+            android:contentDescription="IceCream icon"
+            app:srcCompat="@drawable/banana_split_small"
+            android:layout_marginTop="7dp"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            >
+            android:layout_gravity="center">
 
             <Button
                 android:id="@+id/minusButton"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:onClick="decrese"
-                android:textSize="25dp"
-                android:text="-"
-                style="?android:attr/borderlessButtonStyle"
-                android:textColor="@color/red" />
+                android:text="–"
+                android:textColor="@color/textGrey"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/amount"
@@ -46,39 +48,54 @@
                 android:layout_margin="5dp"
                 android:layout_toEndOf="@+id/minusButton"
                 android:text="1"
+                android:textSize="30sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <Button
                 android:id="@+id/plusButton"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/amount"
                 android:onClick="increase"
-                android:textSize="25dp"
                 android:text="+"
-                android:textColor="@color/blue"
-                style="?android:attr/borderlessButtonStyle" />
+                android:textColor="@color/textGrey"
+                android:textSize="25sp" />
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Helados Artesanos"
+            android:textColor="@color/textGrey"
+            android:gravity="center"
+            android:textSize="23sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#F7F7F7"
         android:orientation="vertical"
-        android:layout_weight=".2">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:id="@+id/tituloCantidad"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:background="#F1F0F0"
             android:text="DATOS DEL CLIENTE" />
 
         <EditText
             android:id="@+id/nameImput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints="name"
             android:ems="10"
             android:hint="Nombre"
             android:inputType="textPersonName"
@@ -97,6 +114,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:background="#F1F0F0"
             android:text="COBERTURAS" />
 
         <CheckBox
@@ -104,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Chololate" />
+            android:text="Chocolate" />
 
         <CheckBox
             android:id="@+id/checkBoxCream"
@@ -112,15 +132,23 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="Crema batida" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resumen del pedido"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#014F94"
+                android:onClick="onClickOrderInfo"
+                android:gravity="center"/>
+        </RelativeLayout>
+
+
     </LinearLayout>
-
-    //TODO: change weight to match actual proportions
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2">
-
-    </RelativeLayout>
 
 
 </LinearLayout>

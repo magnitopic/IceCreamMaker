@@ -13,39 +13,32 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 
 class MainActivity : AppCompatActivity() {
-    private val precioUnitario = 3
     private var cantidad = 1
-    private lateinit var textViewPrecio: TextView
     private lateinit var textViewCantidad: TextView
     private lateinit var checkBoxCream: CheckBox
     private lateinit var checkBoxChocolate: CheckBox
-    private lateinit var nameImput: EditText
+    private lateinit var nameInput: EditText
+    private lateinit var emailInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textViewPrecio = findViewById(R.id.price)
         textViewCantidad = findViewById(R.id.amount)
         checkBoxCream = findViewById(R.id.checkBoxCream)
         checkBoxChocolate = findViewById(R.id.checkBoxChocolate)
-        nameImput = findViewById(R.id.nameImput)
+        nameInput = findViewById(R.id.nameImput)
+        emailInput = findViewById(R.id.emailInput)
     }
 
-    fun onClickButtonOrder(vista: View) {
-        displayPriceInformation()
+    fun onClickOrderInfo(vista: View) {
+        goToOrderInfo()
     }
 
-    private fun  displayPriceInformation() {
-        if (nameImput.text.isNullOrBlank())
-            Toast.makeText(applicationContext, "Nombre invalido", Toast.LENGTH_SHORT).show()
-        else{
-            var info = ("Nombre: ${nameImput.text.toString().trim()}\n¿Incluir crema batida?: ${if (checkBoxCream.isChecked) "Sí" else "No"}\n¿Incluir chocolate?: ${if (checkBoxChocolate.isChecked) "Sí" else "No"}\nCantidad: ${cantidad}\nTotal: ${calculatePrice()} €\n¡Gracias por su visita!")
-            textViewPrecio.text = info
-        }
-    }
-
-    private fun calculatePrice() : Int {
-        return (cantidad * precioUnitario)
+    private fun  goToOrderInfo() {
+        if (nameInput.text.isNullOrBlank() || emailInput.text.isNullOrBlank())
+            Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT).show()
+        else
+            startActivity(Intent(this, RealizarPedido::class.java))
     }
 
     fun increase(Vista : View){
@@ -63,18 +56,6 @@ class MainActivity : AppCompatActivity() {
         }
         else
             Toast.makeText(applicationContext, "Numero minimo de helados alcanzado", Toast.LENGTH_SHORT).show()
-    }
-
-    fun composeEmail(address: Array<String>, message: String, subject: String) {
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            data = Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_EMAIL, address)
-            putExtra(Intent.EXTRA_SUBJECT, subject)
-            putExtra(Intent.EXTRA_TEXT, message)
-        }
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        }
     }
 }
 

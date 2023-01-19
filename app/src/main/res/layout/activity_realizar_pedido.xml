@@ -6,40 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".RealizarPedido">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#F7F7F7"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
 
-        <LinearLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tituloPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F1F0F0"
+                    android:padding="5dp"
+                    android:text="RESUMEN DEL PEDIDO"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="Cargando..."
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tituloPrecio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="RESUMEN DEL PEDIDIO" />
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text=""
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:backgroundTint="#D8D8D8"
-                android:onClick="onClickButtonOrder"
-                android:text="MOSTAR EL RESUMEN DEL PEDIDO"
-                android:textColor="#5e5e5e"
-                tools:ignore="onClick" />
-        </LinearLayout>
-    </ScrollView>
+            android:text="Confirmar pedidio"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:backgroundTint="#014F94"
+            android:gravity="center"/>
+    </RelativeLayout>
 </LinearLayout>
