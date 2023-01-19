@@ -12,9 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
-    private var cantidad = 1
+    private var amount = 1
     private lateinit var textViewCantidad: TextView
     private lateinit var checkBoxCream: CheckBox
     private lateinit var checkBoxChocolate: CheckBox
@@ -35,14 +36,21 @@ class MainActivity : AppCompatActivity() {
         if (nameInput.text.isNullOrBlank() || emailInput.text.isNullOrBlank())
             Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT)
                 .show()
-        else
-            startActivity(Intent(this, RealizarPedido::class.java))
+        else {
+            var i = Intent(this, RealizarPedido::class.java)
+            i.putExtra("name", nameInput.text.toString().trim())
+            i.putExtra("cream", if (checkBoxCream.isChecked) "Sí" else "No")
+            i.putExtra("chocolate", if (checkBoxChocolate.isChecked) "Sí" else "No")
+            i.putExtra("amount", amount.toString())
+            i.putExtra("email", emailInput.text.toString())
+            startActivity(i)
+        }
     }
 
     fun increase(Vista: View) {
-        if (cantidad < 10) {
-            cantidad++
-            textViewCantidad.text = cantidad.toString()
+        if (amount < 10) {
+            amount++
+            textViewCantidad.text = amount.toString()
         } else
             Toast.makeText(
                 applicationContext,
@@ -55,9 +63,9 @@ class MainActivity : AppCompatActivity() {
         !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
     fun decrese(Vista: View) {
-        if (cantidad > 1) {
-            cantidad--
-            textViewCantidad.text = cantidad.toString()
+        if (amount > 1) {
+            amount--
+            textViewCantidad.text = amount.toString()
         } else
             Toast.makeText(
                 applicationContext,

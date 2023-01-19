@@ -10,16 +10,17 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="5dp"
-        android:onClick="">
+        android:layout_marginTop="15dp"
+        android:onClick="goBack">
 
         <ImageButton
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/arrow_small"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:onClick="goBack"
+            app:srcCompat="@drawable/arrow_small" />
 
         <TextView
             android:id="@+id/textView2"
@@ -29,7 +30,7 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/backButton"
             android:text="Volver al pedido"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -58,13 +59,14 @@
                     android:padding="5dp"
                     android:text="RESUMEN DEL PEDIDO"
                     android:textColor="@color/black"
-                    android:textSize="23sp" />
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:textSize="20sp"
                     android:text="Cargando..."
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -78,6 +80,7 @@
             android:layout_gravity="bottom"
             android:backgroundTint="#014F94"
             android:gravity="center"
+            android:onClick="displayInfo"
             android:text="Confirmar pedidio" />
     </RelativeLayout>
 </LinearLayout>
