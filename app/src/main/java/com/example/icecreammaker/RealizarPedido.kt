@@ -24,6 +24,8 @@ class RealizarPedido : AppCompatActivity() {
         return (cantidad * precioUnitario)
     }*/
 
+
+
     fun composeEmail(address: Array<String>, message: String, subject: String) {
         val intent = Intent(Intent.ACTION_SEND).apply {
             data = Uri.parse("mailto:")

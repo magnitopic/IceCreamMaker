@@ -4,16 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".RealizarPedido">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/arrow_small"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/backButton"
+            android:text="Volver al pedido"
+            android:textColor="@color/black"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F7F7F7"
-        android:orientation="vertical"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp">
+        android:background="#F7F7F7"
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -48,10 +74,10 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirmar pedidio"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:backgroundTint="#014F94"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Confirmar pedidio" />
     </RelativeLayout>
 </LinearLayout>

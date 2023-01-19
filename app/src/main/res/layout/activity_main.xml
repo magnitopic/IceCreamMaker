@@ -20,9 +20,9 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
             android:contentDescription="IceCream icon"
-            app:srcCompat="@drawable/banana_split_small"
-            android:layout_marginTop="7dp"/>
+            app:srcCompat="@drawable/banana_split_small" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -48,8 +48,8 @@
                 android:layout_margin="5dp"
                 android:layout_toEndOf="@+id/minusButton"
                 android:text="1"
-                android:textSize="30sp"
                 android:textColor="@color/black"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Button
@@ -67,29 +67,29 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Helados Artesanos"
             android:textColor="@color/textGrey"
-            android:gravity="center"
-            android:textSize="23sp"/>
+            android:textSize="23sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F7F7F7"
-        android:orientation="vertical"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp">
+        android:background="#F7F7F7"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tituloCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/black"
             android:background="#F1F0F0"
-            android:text="DATOS DEL CLIENTE" />
+            android:padding="5dp"
+            android:text="DATOS DEL CLIENTE"
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/nameImput"
@@ -114,10 +114,10 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/black"
             android:background="#F1F0F0"
-            android:text="COBERTURAS" />
+            android:padding="5dp"
+            android:text="COBERTURAS"
+            android:textColor="@color/black" />
 
         <CheckBox
             android:id="@+id/checkBoxChocolate"
@@ -132,19 +132,21 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="Crema batida" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Resumen del pedido"
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
                 android:backgroundTint="#014F94"
+                android:gravity="center"
                 android:onClick="onClickOrderInfo"
-                android:gravity="center"/>
+                android:text="Resumen del pedido" />
         </RelativeLayout>
 
 

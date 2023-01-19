@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
@@ -31,31 +32,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickOrderInfo(vista: View) {
-        goToOrderInfo()
-    }
-
-    private fun  goToOrderInfo() {
         if (nameInput.text.isNullOrBlank() || emailInput.text.isNullOrBlank())
-            Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT)
+                .show()
         else
             startActivity(Intent(this, RealizarPedido::class.java))
     }
 
-    fun increase(Vista : View){
-        if (cantidad < 10){
+    fun increase(Vista: View) {
+        if (cantidad < 10) {
             cantidad++
             textViewCantidad.text = cantidad.toString()
-        }else
-            Toast.makeText(applicationContext, "Numero maximo de helados alcanzado", Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(
+                applicationContext,
+                "Numero maximo de helados alcanzado",
+                Toast.LENGTH_SHORT
+            ).show()
     }
 
-    fun decrese(Vista : View){
-        if (cantidad > 1){
+    fun CharSequence?.isValidEmail() =
+        !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    fun decrese(Vista: View) {
+        if (cantidad > 1) {
             cantidad--
             textViewCantidad.text = cantidad.toString()
-        }
-        else
-            Toast.makeText(applicationContext, "Numero minimo de helados alcanzado", Toast.LENGTH_SHORT).show()
+        } else
+            Toast.makeText(
+                applicationContext,
+                "Numero minimo de helados alcanzado",
+                Toast.LENGTH_SHORT
+            ).show()
     }
 }
 
