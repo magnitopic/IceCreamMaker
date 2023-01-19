@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var checkBoxCream: CheckBox
     private lateinit var checkBoxChocolate: CheckBox
     private lateinit var nameInput: EditText
-    private lateinit var emailInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +28,19 @@ class MainActivity : AppCompatActivity() {
         checkBoxCream = findViewById(R.id.checkBoxCream)
         checkBoxChocolate = findViewById(R.id.checkBoxChocolate)
         nameInput = findViewById(R.id.nameImput)
-        emailInput = findViewById(R.id.emailInput)
     }
 
     fun onClickOrderInfo(vista: View) {
-        if (nameInput.text.isNullOrBlank() || emailInput.text.isNullOrBlank())
+        if (nameInput.text.isNullOrBlank())
             Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT)
                 .show()
         else {
-            var i = Intent(this, RealizarPedido::class.java)
-            i.putExtra("name", nameInput.text.toString().trim())
-            i.putExtra("cream", if (checkBoxCream.isChecked) "Sí" else "No")
-            i.putExtra("chocolate", if (checkBoxChocolate.isChecked) "Sí" else "No")
-            i.putExtra("amount", amount.toString())
-            i.putExtra("email", emailInput.text.toString())
+            var i = Intent(this, RealizarPedido::class.java).apply {
+                putExtra("name", nameInput.text.toString().trim())
+                putExtra("cream", if (checkBoxCream.isChecked) "Sí" else "No")
+                putExtra("chocolate", if (checkBoxChocolate.isChecked) "Sí" else "No")
+                putExtra("amount", amount.toString())
+            }
             startActivity(i)
         }
     }
@@ -58,9 +56,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
     }
-
-    fun CharSequence?.isValidEmail() =
-        !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 
     fun decrese(Vista: View) {
         if (amount > 1) {

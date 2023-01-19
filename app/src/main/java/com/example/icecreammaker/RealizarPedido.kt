@@ -15,7 +15,6 @@ class RealizarPedido : AppCompatActivity() {
     private lateinit var cream: String
     private lateinit var chocolate: String
     private lateinit var amount: String
-    private lateinit var email: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_realizar_pedido)
@@ -26,18 +25,15 @@ class RealizarPedido : AppCompatActivity() {
         cream = intent.getStringExtra("cream").toString()
         chocolate = intent.getStringExtra("chocolate").toString()
         amount = intent.getStringExtra("amount").toString()
-        email = intent.getStringExtra("email").toString()
-        val info =
-            ("Nombre: ${name}\n¿Incluir crema batida?: ${cream}\n¿Incluir chocolate?: ${chocolate}\nCantidad: ${amount}\nTotal: ${precioUnitario * amount.toInt()} €\n¡Gracias por su visita!")
+        // Show data in textView
+        val info = ("Nombre: ${name}\n¿Incluir crema batida?: ${cream}\n¿Incluir chocolate?: ${chocolate}\nCantidad: ${amount}\nTotal: ${precioUnitario * amount.toInt()} €\n¡Gracias por su visita!")
         textViewPrecio.text = info
     }
 
-    fun displayInfo(vista: View) {
-    }
+    fun makeOrder(vista: View) {
 
-    /*private fun calculatePrice(): Int {
-        return (cantidad * precioUnitario)
-    }*/
+        finish()
+    }
 
     fun goBack(vista: View) {
         finish()
