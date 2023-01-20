@@ -1,163 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainScroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:divider="@color/black"
+            android:orientation="vertical"
+            android:showDividers="end">
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:contentDescription="IceCream icon"
+                app:srcCompat="@drawable/banana_split_small" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/increment">
+
+                <Button
+                    android:id="@+id/minusButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:onClick="decrese"
+                    android:text="–"
+                    android:textColor="@color/textGrey"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:layout_toEndOf="@+id/minusButton"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/plusButton"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/amount"
+                    android:onClick="increase"
+                    android:text="+"
+                    android:textColor="@color/textGrey"
+                    android:textSize="25sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Helados Artesanos"
+                android:textColor="@color/textGrey"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="#F7F7F7"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:divider="@color/black"
-                android:orientation="vertical"
-                android:showDividers="end">
-
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:contentDescription="IceCream icon"
-                    app:srcCompat="@drawable/banana_split_small" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-
-                    <Button
-                        android:id="@+id/minusButton"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:onClick="decrese"
-                        android:text="–"
-                        android:textColor="@color/textGrey"
-                        android:textSize="25sp" />
-
-                    <TextView
-                        android:id="@+id/amount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="5dp"
-                        android:layout_toEndOf="@+id/minusButton"
-                        android:text="1"
-                        android:textColor="@color/black"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/plusButton"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toEndOf="@+id/amount"
-                        android:onClick="increase"
-                        android:text="+"
-                        android:textColor="@color/textGrey"
-                        android:textSize="25sp" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Helados Artesanos"
-                    android:textColor="@color/textGrey"
-                    android:textSize="23sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="10dp"
-                android:background="#F7F7F7"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tituloCantidad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="#F1F0F0"
+                    android:padding="5dp"
+                    android:text="DATOS DEL CLIENTE"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/tituloCantidad"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#F1F0F0"
-                        android:padding="5dp"
-                        android:text="DATOS DEL CLIENTE"
-                        android:textColor="@color/black" />
-
-                    <EditText
-                        android:id="@+id/nameImput"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:autofillHints="name"
-                        android:ems="10"
-                        android:hint="Nombre"
-                        android:inputType="textPersonName"
-                        android:maxLength="20" />
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#F1F0F0"
-                        android:padding="5dp"
-                        android:text="COBERTURAS"
-                        android:textColor="@color/black" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxCream"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:text="Crema batida" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxChocolate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="false"
-                        android:text="Chocolate" />
-
-                </LinearLayout>
-
-                <RelativeLayout
+                <EditText
+                    android:id="@+id/nameImput"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
 
-                    <Button
-                        android:id="@+id/button2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_gravity="bottom"
-                        android:backgroundTint="#014F94"
-                        android:gravity="center"
-                        android:onClick="onClickOrderInfo"
-                        android:text="Resumen del pedido" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F1F0F0"
+                    android:padding="5dp"
+                    android:text="COBERTURAS"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
+                <CheckBox
+                    android:id="@+id/checkBoxCream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Crema batida" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxChocolate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Chocolate" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxSprinkles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Sprinkles" />
 
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:backgroundTint="#014F94"
+                    android:gravity="center"
+                    android:onClick="onClickOrderInfo"
+                    android:text="Resumen del pedido" />
+            </RelativeLayout>
+
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

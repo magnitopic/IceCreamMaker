@@ -80,7 +80,7 @@
             android:layout_gravity="bottom"
             android:backgroundTint="#014F94"
             android:gravity="center"
-            android:onClick="displayInfo"
+            android:onClick="makeOrder"
             android:text="Confirmar pedidio" />
     </RelativeLayout>
 </LinearLayout>

@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewCantidad: TextView
     private lateinit var checkBoxCream: CheckBox
     private lateinit var checkBoxChocolate: CheckBox
+    private lateinit var checkBoxSprinkles: CheckBox
     private lateinit var nameInput: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,18 +28,19 @@ class MainActivity : AppCompatActivity() {
         textViewCantidad = findViewById(R.id.amount)
         checkBoxCream = findViewById(R.id.checkBoxCream)
         checkBoxChocolate = findViewById(R.id.checkBoxChocolate)
+        checkBoxSprinkles = findViewById(R.id.checkBoxSprinkles)
         nameInput = findViewById(R.id.nameImput)
     }
 
     fun onClickOrderInfo(vista: View) {
         if (nameInput.text.isNullOrBlank())
-            Toast.makeText(applicationContext, "No puede haber campos vacios", Toast.LENGTH_SHORT)
-                .show()
+            Toast.makeText(applicationContext, "Se debe dar un nombre", Toast.LENGTH_SHORT).show()
         else {
             var i = Intent(this, RealizarPedido::class.java).apply {
                 putExtra("name", nameInput.text.toString().trim())
                 putExtra("cream", if (checkBoxCream.isChecked) "Sí" else "No")
                 putExtra("chocolate", if (checkBoxChocolate.isChecked) "Sí" else "No")
+                putExtra("sprinkles", if (checkBoxSprinkles.isChecked) "Sí" else "No")
                 putExtra("amount", amount.toString())
             }
             startActivity(i)
