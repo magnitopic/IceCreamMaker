@@ -35,16 +35,18 @@
                 android:layout_gravity="center"
                 android:background="@drawable/increment">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/minusButton"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:insetLeft="5dp"
                     android:onClick="decrese"
                     android:text="–"
                     android:textColor="@color/textGrey"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    app:cornerRadius="20dp" />
 
                 <TextView
                     android:id="@+id/amount"
@@ -111,7 +113,8 @@
                     android:ems="10"
                     android:hint="Nombre"
                     android:inputType="textPersonName"
-                    android:maxLength="20" />
+                    android:maxLength="20"
+                     />
 
                 <TextView
                     android:id="@+id/textView"
@@ -128,13 +131,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:text="Crema batida" />
+                    android:text="Crema batida"
+                    android:textSize="17sp" />
 
                 <CheckBox
                     android:id="@+id/checkBoxChocolate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
+                    android:textSize="17sp"
                     android:text="Chocolate" />
 
                 <CheckBox
@@ -142,6 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
+                    android:textSize="17sp"
                     android:text="Sprinkles" />
 
             </LinearLayout>

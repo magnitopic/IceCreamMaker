@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
         else {
             var i = Intent(this, RealizarPedido::class.java).apply {
                 putExtra("name", nameInput.text.toString().trim())
-                putExtra("cream", if (checkBoxCream.isChecked) "Sí" else "No")
-                putExtra("chocolate", if (checkBoxChocolate.isChecked) "Sí" else "No")
-                putExtra("sprinkles", if (checkBoxSprinkles.isChecked) "Sí" else "No")
-                putExtra("amount", amount.toString())
+                putExtra("cream", checkBoxCream.isChecked)
+                putExtra("chocolate", checkBoxChocolate.isChecked)
+                putExtra("sprinkles", checkBoxSprinkles.isChecked)
+                putExtra("amount", amount)
             }
             startActivity(i)
         }

@@ -6,17 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import kotlin.system.exitProcess
 
 class RealizarPedido : AppCompatActivity() {
     private val precioUnitario = 3
+    private val precioTopings = .5
     private lateinit var textViewPrecio: TextView
-    private lateinit var name: String
-    private lateinit var cream: String
-    private lateinit var chocolate: String
-    private lateinit var sprinkles: String
-    private lateinit var amount: String
     private lateinit var info: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +18,29 @@ class RealizarPedido : AppCompatActivity() {
         // Get textView
         textViewPrecio = findViewById(R.id.price)
         // Get variable values
-        name = intent.getStringExtra("name").toString()
-        cream = intent.getStringExtra("cream").toString()
-        chocolate = intent.getStringExtra("chocolate").toString()
-        sprinkles = intent.getStringExtra("sprinkles").toString()
-        amount = intent.getStringExtra("amount").toString()
+        val name = intent.getStringExtra("name")
+        val cream = intent.getBooleanExtra("cream", false)
+        val chocolate = intent.getBooleanExtra("chocolate", false)
+        val sprinkles = intent.getBooleanExtra("sprinkles", false)
+        val amount = intent.getIntExtra("amount", 1)
         // Show data in textView
         info =
-            ("Nombre: ${name}\n¿Incluir crema batida?: ${cream}\n¿Incluir chocolate?: ${chocolate}\n¿Incluir sprinkles?: ${sprinkles}\nCantidad: ${amount}\nTotal: ${precioUnitario * amount.toInt()} €\n¡Gracias por su visita!")
+            ("Nombre: ${name}\n" +
+                    "¿Incluir crema batida?: ${if (cream) "Sí" else "No"}\n" +
+                    "¿Incluir chocolate?: ${if (chocolate) "Sí" else "No"}\n" +
+                    "¿Incluir sprinkles?: ${if (sprinkles) "Sí" else "No"}\n" +
+                    "Cantidad: ${amount}\n" +
+                    "Total: ${
+                        calcularPrecio(
+                            amount,
+                            arrayOf<Int>(
+                                boolToInt(cream),
+                                boolToInt(chocolate),
+                                boolToInt(sprinkles)
+                            )
+                        )
+                    } €\n" +
+                    "¡Gracias por su visita!")
         textViewPrecio.text = info
     }
 
@@ -42,6 +51,15 @@ class RealizarPedido : AppCompatActivity() {
 
     fun goBack(vista: View) {
         finish()
+    }
+
+    fun calcularPrecio(amount: Int, topings: Array<Int>): Double {
+        val price = (amount * precioUnitario) + (topings.sum() * precioTopings)
+        return price
+    }
+
+    fun boolToInt(variable: Boolean): Int {
+        if (variable) return 1 else return 0
     }
 
     fun composeEmail(address: Array<String>, subject: String, message: String) {
