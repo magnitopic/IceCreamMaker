@@ -9,11 +9,14 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/primary"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/headerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="@color/black"
@@ -22,7 +25,7 @@
 
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/iceCreamImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
@@ -30,6 +33,7 @@
                 app:srcCompat="@drawable/banana_split_small" />
 
             <RelativeLayout
+                android:id="@+id/amountLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -40,13 +44,10 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:insetLeft="5dp"
                     android:onClick="decrese"
                     android:text="–"
-                    android:textColor="@color/textGrey"
-                    android:textSize="25sp"
-                    app:cornerRadius="20dp" />
+                    android:textColor="@color/secondary"
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/amount"
@@ -68,20 +69,22 @@
                     android:layout_toEndOf="@+id/amount"
                     android:onClick="increase"
                     android:text="+"
-                    android:textColor="@color/textGrey"
+                    android:textColor="@color/secondary"
                     android:textSize="25sp" />
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/appTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Helados Artesanos"
-                android:textColor="@color/textGrey"
+                android:textColor="#3E294B"
                 android:textSize="23sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/formLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -90,84 +93,74 @@
             android:background="#F7F7F7"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/clientTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="#F1F0F0"
+                android:padding="5dp"
+                android:text="DATOS DEL CLIENTE"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
-                <TextView
-                    android:id="@+id/tituloCantidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#F1F0F0"
-                    android:padding="5dp"
-                    android:text="DATOS DEL CLIENTE"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <EditText
-                    android:id="@+id/nameImput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:ems="10"
-                    android:hint="Nombre"
-                    android:inputType="textPersonName"
-                    android:maxLength="20"
-                     />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#F1F0F0"
-                    android:padding="5dp"
-                    android:text="COBERTURAS"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <CheckBox
-                    android:id="@+id/checkBoxCream"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Crema batida"
-                    android:textSize="17sp" />
-
-                <CheckBox
-                    android:id="@+id/checkBoxChocolate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="17sp"
-                    android:text="Chocolate" />
-
-                <CheckBox
-                    android:id="@+id/checkBoxSprinkles"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:textSize="17sp"
-                    android:text="Sprinkles" />
-
-            </LinearLayout>
-
-            <RelativeLayout
+            <EditText
+                android:id="@+id/nameImput"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="name"
+                android:hint="Nombre del cliente"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_gravity="bottom"
-                    android:backgroundTint="#014F94"
-                    android:gravity="center"
-                    android:onClick="onClickOrderInfo"
-                    android:text="Resumen del pedido" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/colveringTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F1F0F0"
+                android:padding="5dp"
+                android:text="COBERTURAS"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
 
+            <CheckBox
+                android:id="@+id/checkBoxCream"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#4752A9"
+                android:checked="false"
+                android:text="Crema batida"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxChocolate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#4752A9"
+                android:checked="false"
+                android:text="Chocolate"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxSprinkles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:buttonTint="#4752A9"
+                android:checked="false"
+                android:text="Sprinkles"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/detailsButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/secondary"
+                android:gravity="center"
+                android:onClick="onClickOrderInfo"
+                android:text="Resumen del pedido" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
