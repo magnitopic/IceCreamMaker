@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Users/aaparicio/AndroidStudioProjects/IceCreamMaker/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/drawable/increment.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/separator.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/activity_realizar_pedido.xml" value="0.27469482421875" />
+        <entry key="app/src/main/res/layout/activity_realizar_pedido.xml" value="0.335" />
       </map>
     </option>
   </component>

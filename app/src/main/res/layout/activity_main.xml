@@ -39,7 +39,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/increment">
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/minusButton"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
@@ -47,7 +47,8 @@
                     android:onClick="decrese"
                     android:text="–"
                     android:textColor="@color/secondary"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    tools:ignore="onClick" />
 
                 <TextView
                     android:id="@+id/amount"
@@ -70,7 +71,8 @@
                     android:onClick="increase"
                     android:text="+"
                     android:textColor="@color/secondary"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    tools:ignore="onClick" />
             </RelativeLayout>
 
             <TextView
@@ -97,7 +99,7 @@
                 android:id="@+id/clientTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F1F0F0"
+                android:background="@drawable/separator"
                 android:padding="5dp"
                 android:text="DATOS DEL CLIENTE"
                 android:textColor="@color/black"
@@ -112,13 +114,14 @@
                 android:hint="Nombre del cliente"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:textColorHint="@color/secondary"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/colveringTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F1F0F0"
+                android:background="@drawable/separator"
                 android:padding="5dp"
                 android:text="COBERTURAS"
                 android:textColor="@color/black"
@@ -155,12 +158,12 @@
                 android:id="@+id/detailsButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
                 android:backgroundTint="@color/secondary"
                 android:gravity="center"
                 android:onClick="onClickOrderInfo"
-                android:text="Resumen del pedido" />
+                android:text="Resumen del pedido"
+                tools:ignore="onClick" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

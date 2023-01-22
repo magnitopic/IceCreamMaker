@@ -1,18 +1,13 @@
 package com.example.icecreammaker
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Patterns
 import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
     private var amount = 1
@@ -36,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         if (nameInput.text.isNullOrBlank())
             Toast.makeText(applicationContext, "Se debe dar un nombre", Toast.LENGTH_SHORT).show()
         else {
-            var i = Intent(this, RealizarPedido::class.java).apply {
+            val i = Intent(this, RealizarPedido::class.java).apply {
                 putExtra("name", nameInput.text.toString().trim())
                 putExtra("cream", checkBoxCream.isChecked)
                 putExtra("chocolate", checkBoxChocolate.isChecked)

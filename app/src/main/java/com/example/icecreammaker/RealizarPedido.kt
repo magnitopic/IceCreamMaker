@@ -10,13 +10,13 @@ import android.widget.TextView
 class RealizarPedido : AppCompatActivity() {
     private val precioUnitario = 3
     private val precioTopings = .5
-    private lateinit var textViewPrecio: TextView
+    private lateinit var textViewDetails: TextView
     private lateinit var info: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_realizar_pedido)
         // Get textView
-        textViewPrecio = findViewById(R.id.price)
+        textViewDetails = findViewById(R.id.details)
         // Get variable values
         val name = intent.getStringExtra("name")
         val cream = intent.getBooleanExtra("cream", false)
@@ -33,7 +33,7 @@ class RealizarPedido : AppCompatActivity() {
                     "Total: ${
                         calcularPrecio(
                             amount,
-                            arrayOf<Int>(
+                            arrayOf(
                                 boolToInt(cream),
                                 boolToInt(chocolate),
                                 boolToInt(sprinkles)
@@ -41,11 +41,12 @@ class RealizarPedido : AppCompatActivity() {
                         )
                     } €\n" +
                     "¡Gracias por su visita!")
-        textViewPrecio.text = info
+        // Display order details
+        textViewDetails.text = info
     }
 
     fun makeOrder(vista: View) {
-        composeEmail(arrayOf("magnitrash@gmail.com"), "Nuevo pedido de helados", info)
+        composeEmail(arrayOf("magnitrash@gmail.com"), info)
         finish()
     }
 
@@ -53,20 +54,19 @@ class RealizarPedido : AppCompatActivity() {
         finish()
     }
 
-    fun calcularPrecio(amount: Int, topings: Array<Int>): Double {
-        val price = (amount * precioUnitario) + (topings.sum() * precioTopings)
-        return price
+    private fun calcularPrecio(amount: Int, topings: Array<Int>): Double {
+        return (amount * precioUnitario) + (topings.sum() * precioTopings)
     }
 
-    fun boolToInt(variable: Boolean): Int {
+    private fun boolToInt(variable: Boolean): Int {
         if (variable) return 1 else return 0
     }
 
-    fun composeEmail(address: Array<String>, subject: String, message: String) {
+    private fun composeEmail(address: Array<String>, message: String) {
         val newEmail = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:")
             putExtra(Intent.EXTRA_EMAIL, address)
-            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_SUBJECT, "Nuevo pedido de helados")
             putExtra(Intent.EXTRA_TEXT, message)
         }
         if (newEmail.resolveActivity(packageManager) != null) {
