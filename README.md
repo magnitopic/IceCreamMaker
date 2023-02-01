@@ -1,8 +1,8 @@
 # IceCreamMaker
 
-Android and Kotlin proyect to make an Android app to order IceCream.
+Android and Kotlin project to make an Android app to order IceCreams.
 
 ## Images
 
-![FirstActivity](AppFirstActivity.png)
-![SecondActivity](AppSecondActivity.png)
+<img src="AppFirstActivity.png" height="auto" width="300px">
+<img src="AppSecondActivity.png" height="auto" width="300px">
